@@ -21,9 +21,9 @@ function calculateNHIF(grossPay) {
 
 // Function to calculate pension (NSSF) deductions based on pensionable pay
 function calculateNSSF(pensionablePay) {
-    if (pensionablePay <= 7000) return 0;
-    else if (pensionablePay <= 36000) return 200;
-    else return 480; // For pensionable pay above 36,000 (Tier II)
+    if (pensionablePay <= 7000) return 0.6 * pensionablePay;
+    else if (pensionablePay > 7000 && pensionablePay <= 36000) return 0.6 * (pensionablePay - 7000);
+    else return 2160; // For pensionable pay above 36,000 (Tier II)
 }
 
 // Function to calculate tax based on annual taxable pay
